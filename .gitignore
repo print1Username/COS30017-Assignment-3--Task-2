@@ -110,3 +110,8 @@ test-results/
 !app/src/main/java/
 !app/src/main/res/layout/
 !app/src/main/AndroidManifest.xml
+
+# File
+*.pdf
+*.docx
+*.doc
