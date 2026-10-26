@@ -1,0 +1,62 @@
+type:social
+title:Taylor Swift - The Eras Tour
+date:2-9 Mar
+url:https://www.sportshub.com.sg/events/taylor-swift-the-eras-tour
+location:National Stadium, Singapore
+image:taylor_swift.png
+type:professional
+title:Borneo Animation & Games Festival (BAGFEST) 2026
+date:19-21 Aug 2026
+location:Pullman Hotel Kuching
+url:https://www.bagf.my/
+image:bagfest.png
+type:social
+date:12 - 13 Dec 2026
+title:BTS World Tour Arirang 2026 Kuala Lumpur
+location:TM Stadium Nasional KL
+image:bts.png
+url:https://kpopofficial.com/event/bts-concert-kuala-lumpur-2026/
+type:professional
+title:International Digital Economy Conference Sarawak 2026
+date:5th Oct 2026
+location:Borneo Convention Centre Kuching
+url:https://idecs.com.my/
+image:idecs.png
+type:professional
+title:Cyber Security Summit 2026
+date:22 Sept 2026
+location:Mid Valley Megamall, Kuala Lumpur
+url:https://exito-e.com/cybersecuritysummit/malaysia/
+image:cyber_summit.png
+type:social
+title:The ACG Concert
+date:31 Jan 2026
+location:Stadium Perpaduan Kuching
+url:https://www.borneotalk.com/post/acg-concert-largest-in-borneo-set-to-debut-global-sensation-avantgardey
+image:acg_concert.png
+type:professional
+date:4-5 Mar
+title:International Conference on Social Work 2024
+location:Merdeka Palace Hotel & Suites, Kuching
+url:https://asar.net.in/event/index.php?id=2235020
+image:icsw.png
+type:social
+title:AnimeXcess 2024
+location:Aeon Mall Kuching
+date:2-3 Mar
+url:https://allevents.in/kuching/animexcess-2024/200026184583006
+image:anime.png
+type:social
+location:Kuching Sarawak
+date:1-31 Oct
+title:WAK Festival 2026
+url:https://wakfestival.com/
+image:wak.png
+type:social
+location:Suntec Singapore Convention & Exhibition Centre
+title:Anime Festival Asia (AFA) 2026
+date: 27-29 Nov 2026
+url:https://animefestival.asia/afasg26/
+image:afa.png
+
+

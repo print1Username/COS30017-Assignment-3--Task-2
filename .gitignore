@@ -115,3 +115,34 @@ test-results/
 *.pdf
 *.docx
 *.doc
+
+# Documents and office exports (including uppercase extensions)
+*.[pP][dD][fF]
+*.[dD][oO][cC]
+*.[dD][oO][cC][xX]
+*.[dD][oO][cC][mM]
+*.[dD][oO][tT]
+*.[dD][oO][tT][xX]
+*.[dD][oO][tT][mM]
+*.[rR][tT][fF]
+*.[oO][dD][tT]
+*.[pP][pP][tT]
+*.[pP][pP][tT][xX]
+*.[pP][pP][tT][mM]
+*.[xX][lL][sS]
+*.[xX][lL][sS][xX]
+*.[xX][lL][sS][mM]
+*.[oO][dD][sS]
+*.[oO][dD][pP]
+
+# Office lock and recovery files
+~$*
+.~lock.*#
+
+# Additional generated caches and diagnostics
+.cache/
+*.cache
+*.hprof
+*.heapdump
+*.orig
+*.rej
