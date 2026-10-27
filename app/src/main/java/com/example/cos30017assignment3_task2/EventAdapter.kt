@@ -7,7 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EventAdapter(private val events: List<Event>) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
+class EventAdapter(
+	private val events: List<Event>,
+	private val onEventClick: (String) -> Unit
+) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 	class EventViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 		val image: ImageView = view.findViewById(R.id.eventImage)
 		val date: TextView = view.findViewById(R.id.eventDate)
@@ -26,6 +29,7 @@ class EventAdapter(private val events: List<Event>) : RecyclerView.Adapter<Event
 		holder.title.text = event.title
 		holder.location.text = event.location
 		holder.image.contentDescription = event.title
+		holder.itemView.setOnClickListener { onEventClick(event.url) }
 
 		val imageName = event.image.substringBeforeLast('.')
 		val imageId = holder.itemView.resources.getIdentifier(

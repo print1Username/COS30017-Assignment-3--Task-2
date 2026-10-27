@@ -16,6 +16,8 @@
 5. 用户点击任一事件时，打开一个新的 Fragment，并用其中的 `WebView` 加载该事件的 `url`。
 6. 应用须能正确显示、响应点击，并方便本人在 sign-off 时解释数据读取、分类、分页、点击和网页加载的流程。
 
+当前界面按用户要求使用截图中的单数标签 `Social Event` 和 `Professional Event`；上面的复数写法是 PDF 正文对分类的称呼。
+
 当前 `data.txt` 有 10 条事件：6 条 `social`、4 条 `professional`。每条包含 `type`、`title`、`date`、`location`、`url`、`image`；**字段出现顺序并不固定**，读取时按键名解析，不要按固定行号或字段顺序解析。个别值在冒号后有空格，解析时处理值两端空白，但不要改动原文件。
 
 ## 文件准备清单
@@ -24,25 +26,34 @@
 
 | 文件或路径 | 状态 | 作用 |
 | --- | --- | --- |
-| `app/src/main/assets/data.txt` | 待建立；从 `../data.txt` 原样复制 | 运行时读取的原始事件数据。不可改写、重排或手工补事件。 |
-| `app/src/main/res/drawable/` 中的事件图片 | 多数已放入 | 根据 `data.txt` 的 `image` 值显示各事件的图片。`anime.png` 仍未看到，用户表示稍后补上。 |
-| `app/src/main/java/com/example/cos30017assignment3_task2/MainActivity.kt` | 已有模板；待修改 | 放置 TabLayout、ViewPager2，连接分页，并在点击事件后切换到网页 Fragment。 |
-| `EventPagerAdapter.kt` | 待建立 | `FragmentStateAdapter`：为两个 tab 分别创建 Social 和 Professional Fragment。 |
-| `SocialEventsFragment.kt` | 待建立 | Social Events 分页，展示 `social` 事件。 |
-| `ProfessionalEventsFragment.kt` | 待建立 | Professional Events 分页，展示 `professional` 事件。 |
-| `Event.kt` | 待建立 | 表示一条事件的字段，供列表和点击处理共用。 |
-| `EventData.kt` | 待建立 | 从 assets 读取并解析事件，按 `type` 提供数据；保持原始顺序。实现应简洁，避免与界面类重复解析逻辑。 |
-| `EventAdapter.kt` | 待建立 | RecyclerView 适配器：把事件文字、图片绑定到 CardView，并把点击的 URL 交给界面层。两个分页可共用。 |
-| `EventWebViewFragment.kt` | 待建立 | 接收所选事件的 URL，在 WebView 中打开网站。 |
-| `app/src/main/res/layout/activity_main.xml` | 已有 Hello World 模板；待修改 | 主界面的 TabLayout、ViewPager2，以及网页 Fragment 的容器或导航位置。 |
-| `fragment_event_list.xml` | 待建立 | 两个分类 Fragment 可共用的 RecyclerView 布局。 |
-| `item_event.xml` | 待建立 | 单个事件的 CardView：图片、标题、日期、地点等。 |
-| `fragment_event_webview.xml` | 待建立 | WebView 页面布局。 |
-| `app/src/main/AndroidManifest.xml` | 已有；待检查 | 网页加载需要网络权限，并保留 MainActivity 的入口配置。 |
-| `app/build.gradle.kts`、`gradle/libs.versions.toml` | 已有；待检查 | 确认 ViewPager2、RecyclerView、CardView、Fragment 等所需依赖；项目已含 Material Components。只增加实际缺少的依赖。 |
-| `app/src/main/res/values/strings.xml` | 已有；按需修改 | 放置 tab 标题和可见界面文字，避免重复硬编码。 |
+| `app/src/main/assets/data.txt` | 已有；与 `../data.txt` 的 SHA-256 一致 | 运行时读取的原始事件数据。不可改写、重排或手工补事件。 |
+| `app/src/main/res/drawable/` 中的事件图片 | 多数已放入；仍缺 `anime.png` | 根据 `data.txt` 的 `image` 值显示各事件的图片。AnimeXcess 卡片保留空白图片区，等用户补图。 |
+| `app/src/main/java/com/example/cos30017assignment3_task2/MainActivity.kt` | 已完成 | 连接 TabLayout、ViewPager2 和网页 Fragment；返回键或切换标签时恢复列表。 |
+| `EventPagerAdapter.kt` | 已完成 | `FragmentStateAdapter`：为两个 tab 分别创建 Social 和 Professional Fragment。 |
+| `SocialEventsFragment.kt` | 已完成 | Social Event 分页，展示 `social` 事件并转交卡片点击。 |
+| `ProfessionalEventsFragment.kt` | 已完成 | Professional Event 分页，展示 `professional` 事件并转交卡片点击。 |
+| `Event.kt` | 已完成 | 表示一条事件的六个字段。 |
+| `EventData.kt` | 已完成 | 从 assets 按键名读取并解析事件，按 `type` 筛选，保持原始顺序。 |
+| `EventAdapter.kt` | 已完成 | 共用的 RecyclerView 适配器：绑定卡片文字、图片，并将所选 URL 交给界面层。 |
+| `EventWebViewFragment.kt` | 已完成 | 接收所选事件的 URL，在 WebView 中打开网站。 |
+| `app/src/main/res/layout/activity_main.xml` | 已完成 | 顶部 TabLayout；下方在 ViewPager2 与网页 Fragment 容器之间切换。 |
+| `fragment_event_list.xml` | 已完成 | 两个分类 Fragment 共用的 RecyclerView 布局。 |
+| `item_event.xml` | 已完成 | 等高的两列 CardView：图片顶部对齐、完整显示，下面显示日期、标题和地点。 |
+| `fragment_event_webview.xml` | 已完成 | WebView 页面布局。 |
+| `app/src/main/AndroidManifest.xml` | 已加入网络权限 | 保留 MainActivity 的入口配置，并加入 `INTERNET` 权限。 |
+| `app/build.gradle.kts`、`gradle/libs.versions.toml` | 已核对；无需修改 | 现有 Material Components 依赖已传递引入当前使用的 ViewPager2、RecyclerView、CardView 和 Fragment。 |
+| `app/src/main/res/values/strings.xml` | 已完成 | 存放截图样式的单数 tab 标题。 |
 
 `../task 2 images/` 和 `../task 2 images.zip` 是参考资源。当前 `drawable` 中已有 `acg_concert.png`、`afa.png`、`bagfest.png`、`bts.png`、`cyber_summit.png`、`idecs.png`、`wak.png`、`icsw.PNG`、`taylor_swift.PNG`，以及未被 `data.txt` 引用的 `career_fair.PNG`、`location.png`；当前没有 `anime.png`。不要用其他图片冒充 AnimeXcess。图片文件名或扩展名如需调整以满足 Android 资源规则，先核对实际构建结果及 `data.txt` 的映射，且不得修改 `data.txt` 的内容。
+
+## 当前页面行为与验证状态
+
+- 两个分类页使用 `StaggeredGridLayoutManager` 两列显示卡片；`EventData.load()` 分别筛选出 6 条 social 和 4 条 professional 事件。
+- 点击卡片后，`EventAdapter` 传出该条事件的 URL，`MainActivity` 在标签下方显示 `EventWebViewFragment`；WebView 在应用内加载网页并启用 JavaScript。
+- 系统返回键关闭网页并回到原分类列表；打开网页时切换标签会关闭网页并显示新分类列表。顶部标签在网页页面仍可见，符合 PDF 第 7 页截图。
+- `anime.png` 尚未提供，AnimeXcess 卡片当前显示空白图片区，不能把其他图片当作替代。
+- 已运行 `:app:assembleDebug --offline`，构建成功。已在运行中的 Android 模拟器检查：Social 卡片点击会在标签下方打开 WebView；系统返回键回到原列表；打开网页时切换到 Professional 标签会显示 Professional 列表；Professional 的 BAGFEST 网页可加载。
+- Social 的 Taylor Swift 原始 URL 当前会跳转到网站自己的 404 页面；应用已正确加载该 URL，不要为此修改题目提供的 `data.txt`。其他事件 URL、不同设备上的显示及 `anime.png` 补齐后的图片仍待检查。
 
 ## 建议的实施顺序与验收
 

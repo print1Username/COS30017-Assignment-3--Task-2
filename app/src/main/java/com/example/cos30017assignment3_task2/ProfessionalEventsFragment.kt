@@ -18,6 +18,8 @@ class ProfessionalEventsFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		val eventList = view.findViewById<RecyclerView>(R.id.eventList)
 		eventList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-		eventList.adapter = EventAdapter(EventData.load(requireContext(), "professional"))
+		eventList.adapter = EventAdapter(EventData.load(requireContext(), "professional")) { url ->
+			(requireActivity() as MainActivity).openEvent(url)
+		}
 	}
 }
