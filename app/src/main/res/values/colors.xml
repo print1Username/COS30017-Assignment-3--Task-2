@@ -3,4 +3,5 @@
 	<color name="black">#FF000000</color>
 	<color name="white">#FFFFFFFF</color>
 	<color name="event_card">#FFFFE4E4</color>
+	<color name="date_dark_red">#FF8B0000</color>
 </resources>
