@@ -34,7 +34,7 @@
 ## 克隆项目
 
 ```bash
-git clone https://github.com/print1Username/COS30017-Assignment-3--Task-2.git
+git clone https://github.com/COS30017-Software-Development/COS30017-Assignment-3--Task-2.git
 cd COS30017-Assignment-3--Task-2
 ```
 
